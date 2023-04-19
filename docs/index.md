@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "CMS-docs"
-  text: "A VitePress Site"
+  text: "内容管理系统开发文档"
   tagline: My great project tagline
   actions:
     - theme: brand
