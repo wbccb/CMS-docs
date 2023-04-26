@@ -17,6 +17,12 @@ export default defineConfig({
                 text: 'CMS-Vue',
                 items: [
                     {text: '简介', link: '/vue/index'},
+                    {
+                        text: '初始化', items: [
+                            {text: '格式化配置', link: "/normal/eslint-prettier"}
+                        ]
+                    },
+                    {text: '登录', link: '/vue/2-login'},
                 ]
             },
             {
