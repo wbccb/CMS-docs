@@ -303,4 +303,101 @@ export default function directive(app){
 > 在上面`router`已经解释`permission.js`的相关作用
 
 
+## 布局架构
+```javascript
+export const constantRoutes = [
+  {
+    path: '',
+    component: Layout,
+    redirect: '/index',
+    children: [
+      {
+        path: '/index',
+        component: () => import('@/views/index'),
+        name: 'Index',
+        meta: { title: '首页', icon: 'dashboard', affix: true }
+      }
+    ]
+  },
+  {
+    path: '/user',
+    component: Layout,
+    hidden: true,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'profile',
+        component: () => import('@/views/system/user/profile/index'),
+        name: 'Profile',
+        meta: { title: '个人中心', icon: 'user' }
+      }
+    ]
+  }
+]
+```
 
+基础路由上使用了`@/layout/index.vue`
+
+```vue
+<template>
+  <div :class="classObj" class="app-wrapper" :style="{ '--current-color': theme }">
+    <div v-if="device === 'mobile' && sidebar.opened" class="drawer-bg" @click="handleClickOutside"/>
+    <sidebar v-if="!sidebar.hide" class="sidebar-container" />
+    <div :class="{ hasTagsView: needTagsView, sidebarHide: sidebar.hide }" class="main-container">
+      <div :class="{ 'fixed-header': fixedHeader }">
+        <navbar @setLayout="setLayout" />
+        <tags-view v-if="needTagsView" />
+      </div>
+      <app-main />
+      <settings ref="settingRef" />
+    </div> 
+  </div>
+</template>
+```
+
+主要分为：
+- `sidebar`：侧边菜单栏
+- `navbar`：右边布局的顶部布局
+- `tags-view`：多菜单栏，可以选择多个窗口
+- `app-main`：主页面，跟侧边菜单栏联动，可以切换不同的子组件
+
+----
+
+进行不同组件切换的是`app-main`
+
+```vue
+<template>
+  <section class="app-main">
+    <router-view v-slot="{ Component, route }">
+      <transition name="fade-transform" mode="out-in">
+        <keep-alive :include="tagsViewStore.cachedViews">
+          <component v-if="!route.meta.link" :is="Component" :key="route.path"/>
+        </keep-alive>
+      </transition>
+    </router-view>
+    <iframe-toggle />
+  </section>
+</template>
+```
+
+而切换不同组件放在`@/views/xxx`文件夹中，而主要的布局文件放在`@/layout/xxx`文件夹中，就很好分离了基础布局和业务代码
+
+如果想要增加不同的业务代码，只需要增加对应的路由`router`，然后在业务文件夹`@/layout/xxx`增加对应的组件代码逻辑
+
+## 权限管理
+
+角色管理：超级管理员、系统管理员、普通角色
+:::tip 角色管理
+角色可以跟左侧菜单栏挂钩，比如系统管理员可以查看系统管理的菜单栏，不可以查看工具菜单栏
+:::
+
+
+> 部门管理、岗位管理、用户管理:
+> 
+> 只是一个数据字段，没有什么实际作用，比如可以查看某个人的具体手机号码等
+
+
+
+## 菜单栏管理
+
+涉及到菜单栏的新增改查，与`路由router`进行绑定
