@@ -41,6 +41,12 @@ export default defineConfig({
                 items: [
                     {text: '简介', link: '/koa/index'},
                 ]
+            },
+            {
+                text: '常见小问题',
+                items: [
+                    {text: 'vite配置别名不生效', link: '/problem/vite-alias'},
+                ]
             }
         ],
 
