@@ -27,7 +27,7 @@ export default defineConfig({
                             {text: '格式化配置', link: "/normal/eslint-prettier"}
                         ]
                     },
-                    {text: '登录', link: '/vue/2-login'},
+                    {text: '登录', link: '/vue/2-login/login'},
                 ]
             },
             {
@@ -46,6 +46,7 @@ export default defineConfig({
                 text: '常见小问题',
                 items: [
                     {text: 'vite配置别名不生效', link: '/problem/vite-alias'},
+                    {text: '比较特殊的路由匹配规则', link: '/problem/vue-router-rules'},
                 ]
             }
         ],

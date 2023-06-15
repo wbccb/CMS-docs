@@ -300,7 +300,18 @@ export default function directive(app){
 > 代码中还没有使用这个`v-hasRole`指令
 
 ### permission
-> 在上面`router`已经解释`permission.js`的相关作用
+除了上面`router.permission`之外，还有`store.permission`
+
+#### store
+> 文件位于`src/store/modules/permission.js`
+
+主要涉及到4个方法：
+
+
+
+#### router
+
+
 
 
 ## 布局架构
@@ -395,6 +406,8 @@ export const constantRoutes = [
 > 部门管理、岗位管理、用户管理:
 > 
 > 只是一个数据字段，没有什么实际作用，比如可以查看某个人的具体手机号码等
+
+
 
 
 
