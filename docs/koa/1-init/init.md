@@ -5,3 +5,10 @@
 
 ## koa初始化项目
 `koa xxx(projectName)` 或者直接`koa`
+
+
+# 数据库初始化
+
+
+
+# 校验库

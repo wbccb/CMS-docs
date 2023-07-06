@@ -1,1 +1,1 @@
-项目链接为：https://github.com/wbccb/mini-CMS-Vue
+项目链接为：https://github.com/wbccb/mini-CMS-admin
