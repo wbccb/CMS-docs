@@ -5,6 +5,11 @@
 2. `token`可以放在`body`、`header`、`url?token=xx`进行传递
 
 
+## token的生成与存储
+
+放在`3-feature/1-登录.md`中
+
+
 ## token检测中间件
 
 `HttpBasicAuth`是一种携带`token`的方式，属于`HTTP授权机制`的一种
