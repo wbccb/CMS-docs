@@ -40,6 +40,23 @@ export default defineConfig({
                 text: 'CMS-Koa',
                 items: [
                     {text: '简介', link: '/koa/index'},
+                    {text: '初始化', link: '/koa/1-init/init'},
+                    {text: '概要设计',
+                        items: [
+                            {text: 'HTTP授权种类', link: '/koa/2-base/HTTP授权种类'},
+                            {text: 'jwt', link: '/koa/2-base/jwt'},
+                            {text: '数据库相关知识', link: '/koa/2-base/数据库相关知识'},
+                            {text: '错误处理与数据返回', link: '/koa/2-base/错误处理与数据返回'},
+                        ]
+                    },
+                    {text: '详细设计',
+                        items: [
+                            {text: '注册', link: '/koa/3-feature/0-注册'},
+                            {text: '登录', link: '/koa/3-feature/1-登录'},
+                            {text: 'token', link: '/koa/3-feature/2-token'},
+                            {text: '权限控制', link: '/koa/3-feature/3-权限控制'},
+                        ]
+                    },
                 ]
             },
             {
