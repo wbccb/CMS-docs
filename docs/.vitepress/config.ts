@@ -27,7 +27,7 @@ export default defineConfig({
                             {text: '格式化配置', link: "/normal/eslint-prettier"}
                         ]
                     },
-                    {text: '登录', link: '/vue/2-login/login'},
+                    {text: '登录', link: '/vue/2-feature/login'},
                 ]
             },
             {
