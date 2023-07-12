@@ -141,6 +141,8 @@ npm install --dev eslint
 npx eslint --init
 ```
 
+我们选择`eslint`只进行代码的修复，而代码风格的检查则放给下面要设置的`prettier`
+
 > 经过上面的配置，我们已经配置好了`js`、`ts`、`vue`的`eslint`规则
 
 3. 安装vite-plugin-eslint
